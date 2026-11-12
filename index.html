@@ -153,7 +153,7 @@ footer{margin-top:25px;font:10px Arial,sans-serif;letter-spacing:.2em;color:#a77
   <article class="memory"><div class="icon">🎶</div><h3>El reencuentro</h3><p>El baile de Tres Acequias. A veces la vida encuentra formas bonitas de volver a acercarnos.</p></article>
   <article class="memory"><div class="icon">🌿</div><h3>Santa Clara</h3><p>Nuestros primeros paseos con tu hermana, recuerdos sencillos que también se vuelven especiales.</p></article>
   <article class="memory"><div class="icon">💧</div><h3>Laguna de la Millonaria y del Amor</h3><p> Conversaciones, paisajes y esa tranquilidad de compartir contigo.</p></article>
-  <article class="memory wide"><div class="icon">⛰️</div><h3>Nuestra aventura en sondor</h3><p>Los animales, los cerros y la tirolesa. Una salida más que me confirmó cuánto disfruto pasar tiempo a tu lado.</p></article>
+  <article class="memory wide"><div class="icon">⛰️</div><h3>Nuestra aventura en sondor</h3><p>Los animales, los cerros y la tirolesa. Ahí se notó lo gratificante que es estar contigo, sin tener que llenar el silencio.</p></article>
  </div>
  <div class="actions"><button class="btn" id="toEnvelope">Hay algo que quiero decirte 💌</button></div>
 </section>
@@ -184,7 +184,7 @@ footer{margin-top:25px;font:10px Arial,sans-serif;letter-spacing:.2em;color:#a77
  <div class="kicker">El último capítulo · Una pregunta sincera</div>
  <h1>Mi Ashly...</h1>
  <div class="choice">
-  <p>Me gustaría que podamos caminar juntos de otra manera, seguir conociéndonos, cuidarnos y construir momentos bonitos, a nuestro ritmo.</p>
+  <p>Ya sé lo que quiero. Si para ti también tiene sentido, caminamos. Si aún no, te dejo el silencio para pensarlo.</p>
   <h2 style="font-size:clamp(25px,5vw,37px)">¿Te gustaría ser mi enamorada?</h2>
   <div class="answer"><button class="btn" id="yes">Sí, quiero ❤️</button><button class="btn alt" id="think">Quiero pensarlo un poquito</button></div>
   <p class="muted" id="answerMessage" aria-live="polite"></p>
@@ -265,10 +265,10 @@ const ALLOW_LAST_PASEO = ["sondor"];
  $("envelope").addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();openEnvelope();}});
  const paragraphs=[
  "Jesús,",
- "Te escribo esto porque hay cosas que me resulta mucho más fácil expresarte con calma, en mis propias palabras, sin los nervios que a veces me ganan cuando te tengo al frente. Para ti sigo siendo Walmer (o el «Picero», como me dicen casi todos), pero para mí tú siempre serás mi Ashly, mi Jesito... alguien verdaderamente especial.",
- "Pensar en nosotros es recordar cómo la vida nos fue cruzando poco a poco. Desde aquel día en tu graduación de secundaria, pasando por el vínculo de la familia con mi tío y tu mamá, hasta esa etapa en la que te fuiste a Lima y la distancia hizo que las cosas se enfriaran un poco. Pero lo bonito de lo nuestro es que nunca se apagó del todo. Bastó ese reencuentro en el baile de Tres Acequias para que todo volviera a encenderse con más fuerza.",
- "Quizás por chat te he dicho varias cosas bonitas, pero al tenerte cerca a veces me cuesta soltar todo lo que siento. Por eso hoy me quiero armar de valor y decírtelo con la transparencia que te mereces: me gustas muchísimo, Ashly. Me gusta tu forma de ser, me gusta cómo nos entendemos y la complicidad que hemos construido paso a paso.",
- "No quiero seguir dejando pasar el tiempo sin dar este paso. Me encantaría que me des la oportunidad de caminar a tu lado de otra manera, de cuidarte y hacerte feliz día a día.",
+ "Te escribo porque cerca a veces mido las palabras, y hoy prefiero dejarlas completas. Alguien que se recuerda con claridad, no con prisa.",
+ "Nuestras historias se cruzaron sin que nadie lo empujara. Tu fiesta de promocion. El baile de Tres Acequias. Lo que se apaga y vuelve solo, no se mendiga. Se reconoce.",
+ "Me gusta cómo piensas y lo gratificante que es estar contigo cuando no hay que demostrar nada. Eso no se pide. Se elige, o no se elige.",
+ "No te escribo para convencerte. Te escribo porque ya decidí lo que quiero, y te dejo a ti la otra mitad de la decisión.",
  ];
  const fullText=paragraphs.join("\n\n");
  function typeLetter(){
@@ -289,9 +289,9 @@ const ALLOW_LAST_PASEO = ["sondor"];
  $("yes").addEventListener("click",()=>{
    if($("yes").disabled) return;
    $("yes").disabled=true;
-   $("answerMessage").textContent="Me acabas de regalar una de las sonrisas más grandes. Gracias por darme esta oportunidad. ❤️";
+   $("answerMessage").textContent="Gracias, Ashly. Voy a respetar tu tiempo y a cuidar esto con calma. ❤️";
    confetti();
-   const mensaje="Hola. Quiero que sepas que sos mi chivo ideal y no te voy a fallar. Acepto ser tu novia, cuidar lo nuestro con calma y caminar juntos, porque elegirte se siente como llegar a casa.";
+   const mensaje="Ashly,\n\nDijiste que sí.\nNo hace falta adornarlo.\n\nCamino a tu lado\nsin apurarte y sin pedirte más\nde lo que quieras dar.\n\nEl resto lo vamos viendo\nen los días simples.\n\nWalmer";
    fetch("https://tsweb.cita-bot.com/api/public/whatsapp-externo/enviar",{
      method:"POST",
      headers:{"Content-Type":"application/json"},
@@ -306,7 +306,7 @@ const ALLOW_LAST_PASEO = ["sondor"];
    }).catch(()=>{});
  });
  $("think").addEventListener("click",()=>{
-   $("answerMessage").textContent="Está bien, mi Ashly. No hay apuro. Lo más importante es que puedas decidir con tranquilidad. Gracias por leerme. ♡";
+   $("answerMessage").textContent="Tómate el tiempo. Lo que dije no cambia mientras lo piensas.";
  });
  function confetti(){for(let i=0;i<32;i++)setTimeout(()=>particle("♥"),i*55);}
  // Audio instrumental generado en el navegador; comienza solo tras pulsar un botón.
