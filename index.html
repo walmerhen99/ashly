@@ -223,7 +223,7 @@ const ALLOW_LAST_PASEO = ["sondor"];
    const value=normalize($("secretAnswer").value);
    const ok=ALLOW_FIRST_PASEO.some(x=>value===x);
    if(ok){firstOK=true;feedback("feedback","Ese recuerdo sí es nuestro. ♡");setTimeout(()=>show("secondGate"),750);}
-   else feedback("feedback","Casi... piensa en aquel paseo que compartimos con tu hermana. 🌷");
+   else feedback("feedback","Casi... piensa en aquel paseo cuando bajante a hbba a comprar sacos y nos fuimos de paseo");
  });
  $("secretAnswer").addEventListener("keydown",e=>{if(e.key==="Enter")$("checkAnswer").click();});
  $("checkLast").addEventListener("click",()=>{
